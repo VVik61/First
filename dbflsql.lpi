@@ -172,6 +172,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Un_AnsiOem"/>
       </Unit>
+      <Unit>
+        <Filename Value="DBF3.PAS"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Dbf3"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

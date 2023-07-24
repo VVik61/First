@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, u_main, DM_setup, DM_FB, un_structura, FM_SetPAinDBFL, u_SelLetDBFL,
-  PrntInW, dm_wbdf, un_resstring, uofficedll, Un_AnsiOem;
+  PrntInW, dm_wbdf, un_resstring, uofficedll, Un_AnsiOem, Dbf3;
 
 {$R *.res}
 
