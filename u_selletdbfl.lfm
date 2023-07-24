@@ -1,0 +1,45 @@
+object FM_SelLetDBFL: TFM_SelLetDBFL
+  Left = 403
+  Height = 511
+  Top = 172
+  Width = 1245
+  Caption = 'FM_SelLetDBFL'
+  ClientHeight = 511
+  ClientWidth = 1245
+  DesignTimePPI = 120
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  object CbxFioLetal: TCheckListBox
+    Left = 0
+    Height = 394
+    Top = 117
+    Width = 1245
+    Align = alClient
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Name = 'Consolas'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ItemHeight = 0
+    OnDblClick = CbxFioLetalDblClick
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 117
+    Top = 0
+    Width = 1245
+    Align = alTop
+    Caption = 'Двойным кликом выберите пациента, данные которого нужно занести в данные ПА исследования.'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clNavy
+    Font.Height = -30
+    Font.Name = 'Consolas'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 1
+    Wordwrap = True
+  end
+end

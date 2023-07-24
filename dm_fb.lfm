@@ -1,0 +1,93 @@
+object D_FB: TD_FB
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 320
+  HorizontalOffset = 354
+  VerticalOffset = 41
+  Width = 405
+  PPI = 120
+  object IBDB: TIBDatabase
+    Connected = False
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = False
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey'
+    )
+    DefaultTransaction = IBTrAct
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    Left = 58
+    Top = 26
+  end
+  object IBTrAct: TIBTransaction
+    TransactionName = '{0E1B9E60-0AC4-4CEA-97C6-259DD540AC6B}'
+    Active = False
+    DefaultDatabase = IBDB
+    Left = 58
+    Top = 99
+  end
+  object IBTrActDS: TIBTransaction
+    TransactionName = '{2A36360B-1665-4910-9A4B-A94178812DE8}'
+    Active = False
+    DefaultDatabase = IBDB
+    Left = 164
+    Top = 99
+  end
+  object IBDS: TIBDataSet
+    AllowAutoActivateTransaction = False
+    Database = IBDB
+    Transaction = IBTrActDS
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    GenerateParamNames = False
+    MasterDetailDelay = 0
+    DataSetCloseAction = dcDiscardChanges
+    TZTextOption = tzOffset
+    DefaultTZDate = 43831
+    SQLFiltered = False
+    Left = 164
+    Top = 31
+  end
+  object dlgOpenBD: TOpenDialog
+    Left = 58
+    Top = 196
+  end
+  object TrayIcon1: TTrayIcon
+    OnClick = TrayIcon1Click
+    Left = 152
+    Top = 196
+  end
+  object IBDS_RAB: TIBDataSet
+    AllowAutoActivateTransaction = False
+    Database = IBDB
+    Transaction = IBTrAct
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    SelectSQL.Strings = (
+      ''
+    )
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    GenerateParamNames = False
+    MasterDetailDelay = 0
+    DataSetCloseAction = dcDiscardChanges
+    TZTextOption = tzOffset
+    DefaultTZDate = 43831
+    SQLFiltered = False
+    Left = 268
+    Top = 36
+  end
+  object IBTrActDS_RAB: TIBTransaction
+    TransactionName = '{4D66A5AC-E43F-47C8-B4F1-222D2A2B7AA6}'
+    Active = False
+    Left = 268
+    Top = 104
+  end
+end

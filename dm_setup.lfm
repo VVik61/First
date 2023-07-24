@@ -1,0 +1,16 @@
+object DM_S: TDM_S
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 89
+  HorizontalOffset = 395
+  VerticalOffset = 210
+  Width = 99
+  PPI = 120
+  object IniPS: TIniPropStorage
+    StoredValues = <>
+    IniSection = 'Directory'
+    OnRestoreProperties = IniPSRestoreProperties
+    Left = 34
+    Top = 24
+  end
+end

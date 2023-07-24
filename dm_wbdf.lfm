@@ -1,0 +1,207 @@
+object dm_wdbf: Tdm_wdbf
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 581
+  HorizontalOffset = 264
+  VerticalOffset = 43
+  Width = 954
+  PPI = 120
+  object Dbf_Register: TDbf
+    IndexDefs = <>
+    TableName = 'register.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 50
+    Top = 55
+  end
+  object Dbf_PEREMENA: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'peremena.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 205
+    Top = 55
+  end
+  object Dbf_DIAGKOSN: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'DIAGKOSN.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 365
+    Top = 55
+  end
+  object Dbf_DIAGPOSN: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'DIAGPOSN.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 565
+    Top = 55
+  end
+  object Dbf_ZAKLUCHE: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ZAKLUCHE.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 740
+    Top = 55
+  end
+  object Dbf_ANAM_GZN: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'AN_GZN.dbf'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 50
+    Top = 165
+  end
+  object Dbf_ANAM_ZBL: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'AN_ZBL.dbf'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 205
+    Top = 165
+  end
+  object Dbf_PSIXISOS: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'PSIX_SOS.dbf'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 365
+    Top = 165
+  end
+  object Dbf_SOMATSOS: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'SOMA_SOS.dbf'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 565
+    Top = 165
+  end
+  object Dbf_NEVROSOS: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'NEVR_SOS.dbf'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 740
+    Top = 165
+  end
+  object Dbf_ANAL_GIR: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ANAL_GIR.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 50
+    Top = 290
+  end
+  object Dbf_ANAL_KRV: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ANAL_KRV.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 205
+    Top = 290
+  end
+  object Dbf_ANAL_MCH: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ANAL_MCH.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 365
+    Top = 285
+  end
+  object Dbf_ANAL_LUM: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ANAL_LUM.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 565
+    Top = 290
+  end
+  object Dbf_ANAL_SVI: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ANAL_SVI.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 740
+    Top = 280
+  end
+  object Dbf_ANAL_KON: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'ANAL_KON.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 50
+    Top = 385
+  end
+  object Dbf_LEKA_MED: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'LEKA_MED.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 205
+    Top = 390
+  end
+  object Dbf_LEKA_NMD: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'LEKA_NMD.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 365
+    Top = 385
+  end
+  object Dbf_LEKA_XIR: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'LEKA_XIR.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 565
+    Top = 385
+  end
+  object Dbf_LEKA_REZ: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'leka_rez.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 740
+    Top = 385
+  end
+  object Dbf_RECOMEND: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'RECOMEND.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 50
+    Top = 490
+  end
+  object Dbf_COMMENT: TDbf
+    FilePath = 'E:\Lazar_proj\DWdbf\DBF_W\'
+    IndexDefs = <>
+    TableName = 'COMMENTR.DBF'
+    TableLevel = 7
+    FilterOptions = []
+    Left = 205
+    Top = 490
+  end
+end
