@@ -21,7 +21,7 @@
       <BuildNr Value="1"/>
       <Language Value="0419"/>
       <CharSet Value="04E7"/>
-      <Attributes pvaDebug="True"/>
+      <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Для работы с файлами DOS-версии Эпикриз." CompanyName="Vik" InternalName="dbflsql" LegalCopyright="В.Воронов © 2023г" OriginalFilename="dbflsql.exe"/>
     </VersionInfo>
     <BuildModes>
