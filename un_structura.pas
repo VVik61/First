@@ -841,7 +841,7 @@ procedure  inDIAGPOSNfDBF(var sPutDBF: string; iz: longint);
 var
   y, k: integer;
 begin
-  sPutDBF := UTF8ToConsole(DM_S.sRabDir+ DM_S.namedbf[3]);
+  sPutDBF := UTF8ToConsole(DM_S.sRabDir+ DM_S.namedbf[4]);
   //Showmessage(sPutDBF);
   if DbfOpen(1, sPutDBF) <>0 then   Showmessage('Ошибка')
   else With DIAGPOSN, FB_EpiW do begin

@@ -28,8 +28,8 @@ object fmMain: TfmMain
       Top = 11
       Width = 394
       Caption = 'Выполнение днействия'
-      OnClick = Button3Click
       TabOrder = 0
+      OnClick = Button3Click
     end
     object BtnSetPAD: TButton
       Left = 1059
@@ -37,8 +37,8 @@ object fmMain: TfmMain
       Top = 11
       Width = 199
       Caption = 'ПА данные'
-      OnClick = BtnSetPADClick
       TabOrder = 1
+      OnClick = BtnSetPADClick
     end
     object rgOption: TRadioGroup
       Left = 10
@@ -167,8 +167,8 @@ object fmMain: TfmMain
     Font.Pitch = fpFixed
     Font.Quality = fqDraft
     ItemHeight = 0
-    OnDblClick = CbxFioDblClick
     ParentFont = False
     TabOrder = 4
+    OnDblClick = CbxFioDblClick
   end
 end

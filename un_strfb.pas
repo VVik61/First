@@ -115,7 +115,6 @@ TREZLekArray = array[1..6] of String[60];
 
 TANALTabArray = array[1..90] of un_structura.RKLanDann;
 
-
 TFB_EpiW = record
     sFio_      : String;
     sFam       : String;
@@ -210,127 +209,130 @@ TFB_EpiW = record
     IDZavORit   : String; //'0' Нельсон
 end;
 
+
 var
   FB_EpiW: TFB_EpiW;
   sTMP: String;
   m, n: integer;
+procedure ClearFB_EpiW;
 
 implementation
 
-initialization
-sTMP:= '';
-With FB_EpiW do begin
-  sFio_      := '';
- sFam       := '';
- sImia      := '';
- IDImia     := '';
- sOth       := '';
- sGR        := '';
- sPol_      := '';
- sNumIB     := '';
- sNOPer     := '';
- sDataBoln  := '';
- sOtkuda    := '';
- IDOtkuda    := '15'; //из дома
- sDataOrit  := '';
- sVBL       := '';
- IDVBL      := '4';  //на лечении
- sKuda      := '';
- IDKuda      := '0';
- sDataVip   := '';
- sIsxod_    := '';
- IDIsxod_    := '1';
- sLPU       := '';
- IDLPU       := '0';
- sNOPer     := '';
- sStrana    := '';
- IDStrana    := '643'; //РОССИЯ
- sRegion    := '';
- IDRegion    := '46';  //Московская обл
- sPunkt     := '';
- IDPunkt     := '0';
- sAdrMJ     := '';
- sAdres     := '';
- sRabota_   := '';
- IDRabota   := '0';
- sGrInvalid := '';
- sInvalidT  := '';
- sInvalidV  := '';
- sInvalidSrok:= '';
- sInvalidAll:= '';
- s1RostvID  := '';
- ID1RostvID  := '';
- s1RostvFio := '';
- s1RostvAdr := '';
- s2RostvID  := '';
- ID2RostvID  := '';
- s2RostvFio := '';
- s2RostvAdr := '';
- sRodstvAll := '';
- for m := 1 to 50 do begin
-   DZArray[m].sTipDz:= '*';
-   DZArray[m].sShifr:= '*';
-   DZArray[m].sDz:= '*';
- end;
- sDzOsnALL  := '';
- sDzOsn     := '';
- sDzFon     := '';
- sDzOsl     := '';
- sDzSop     := '';
- sAnGz      := '';
- sAnZb      := '';
- sPsSt      := '';
- sSomS      := '';
- sNevS      := '';
- sRezusKr   := '';
- sGruppaKr  := '';
- sAnalObsh  := '';
- sAnalKr    := '';
- sAnalMO    := '';
- sAnalLu    := '';
- iAnK       :=0;
- iAnM       :=0;
- iAnL       :=0;
- for m := 1 to 90 do begin
-   AllTabAnal[m].sNPok:='*';
-   AllTabAnal[m].sZnPok:='*';
-   AllTabAnal[m].sPeriod:='*';
- end;
-  for m := 1 to 6 do begin
-   OBSLArray[m].sVidOBSL:= '*';
-   OBSLArray[m].sDATAOBSL:= '*';
-   OBSLArray[m].sREZ_OBSL:= '*';
- end;
- sInstrumI  := '';
- for m := 1 to 6 do begin
-   KONSArray[m].sVidOBSL:= '*';
-   KONSArray[m].sDATAOBSL:= '*';
-   KONSArray[m].sREZ_OBSL:= '*';
- end;
- sKonsult   := '';
- sLekM      := '';
- sLekNM     := '';
- sLekX      := '';
- for m := 1 to 6 do REZLekArray[m]:= '*';
- sRezLek    := '';
- sIT_sutki  := '';
- sIT_chas   := '';
- sIT_min    := '';
- sPS_chas   := '';
- sPS_sutki  := '';
- sPS_min    := '';
- sRecomend  := '';
- sComment   := '';
- sVR1       := '';
- IDVR1       := '15'; //Вевербрант
- sVR2       := '';
- IDVR2       := '1';  //Воронов
- sVR3       := '';
- IDVR3       := '16'; //Гуц    '4' Марисов
- sZavORit   := '';
- IDZavORit   := '0';  //Нельсон
+procedure ClearFB_EpiW;
+begin
+ sTMP:= '';
+ With FB_EpiW do begin
+    sFio_      := '';
+   sFam       := '';
+   sImia      := '';
+   IDImia     := '';
+   sOth       := '';
+   sGR        := '';
+   sPol_      := '';
+   sNumIB     := '';
+   sNOPer     := '';
+   sDataBoln  := '';
+   sOtkuda    := '';
+   IDOtkuda    := '15'; //из дома
+   sDataOrit  := '';
+   sVBL       := '';
+   IDVBL      := '4';  //на лечении
+   sKuda      := '';
+   IDKuda      := '0';
+   sDataVip   := '';
+   sIsxod_    := '';
+   IDIsxod_    := '1';
+   sLPU       := '';
+   IDLPU       := '0';
+   sNOPer     := '';
+   sStrana    := '';
+   IDStrana    := '643'; //РОССИЯ
+   sRegion    := '';
+   IDRegion    := '46';  //Московская обл
+   sPunkt     := '';
+   IDPunkt     := '0';
+   sAdrMJ     := '';
+   sAdres     := '';
+   sRabota_   := '';
+   IDRabota   := '0';
+   sGrInvalid := '';
+   sInvalidT  := '';
+   sInvalidV  := '';
+   sInvalidSrok:= '';
+   sInvalidAll:= '';
+   s1RostvID  := '';
+   ID1RostvID  := '';
+   s1RostvFio := '';
+   s1RostvAdr := '';
+   s2RostvID  := '';
+   ID2RostvID  := '';
+   s2RostvFio := '';
+   s2RostvAdr := '';
+   sRodstvAll := '';
+   for m := 1 to 50 do begin
+     DZArray[m].sTipDz:= '*';
+     DZArray[m].sShifr:= '*';
+     DZArray[m].sDz:= '*';
+   end;
+   sDzOsnALL  := '';
+   sDzOsn     := '';
+   sDzFon     := '';
+   sDzOsl     := '';
+   sDzSop     := '';
+   sAnGz      := '';
+   sAnZb      := '';
+   sPsSt      := '';
+   sSomS      := '';
+   sNevS      := '';
+   sRezusKr   := '';
+   sGruppaKr  := '';
+   sAnalObsh  := '';
+   sAnalKr    := '';
+   sAnalMO    := '';
+   sAnalLu    := '';
+   iAnK       :=0;
+   iAnM       :=0;
+   iAnL       :=0;
+   for m := 1 to 90 do begin
+     AllTabAnal[m].sNPok:='*';
+     AllTabAnal[m].sZnPok:='*';
+     AllTabAnal[m].sPeriod:='*';
+   end;
+    for m := 1 to 6 do begin
+     OBSLArray[m].sVidOBSL:= '*';
+     OBSLArray[m].sDATAOBSL:= '*';
+     OBSLArray[m].sREZ_OBSL:= '*';
+   end;
+   sInstrumI  := '';
+   for m := 1 to 6 do begin
+     KONSArray[m].sVidOBSL:= '*';
+     KONSArray[m].sDATAOBSL:= '*';
+     KONSArray[m].sREZ_OBSL:= '*';
+   end;
+   sKonsult   := '';
+   sLekM      := '';
+   sLekNM     := '';
+   sLekX      := '';
+   for m := 1 to 6 do REZLekArray[m]:= '*';
+   sRezLek    := '';
+   sIT_sutki  := '';
+   sIT_chas   := '';
+   sIT_min    := '';
+   sPS_chas   := '';
+   sPS_sutki  := '';
+   sPS_min    := '';
+   sRecomend  := '';
+   sComment   := '';
+   sVR1       := '';
+   IDVR1       := '15'; //Вевербрант
+   sVR2       := '';
+   IDVR2       := '1';  //Воронов
+   sVR3       := '';
+   IDVR3       := '16'; //Гуц    '4' Марисов
+   sZavORit   := '';
+   IDZavORit   := '0';  //Нельсон
+  end;
 end;
-
 (*
 for m := 1 to 40 do
   with AnTablFB[m] do begin
@@ -342,5 +344,7 @@ for m := 1 to 40 do
        end;
   end;
 *)
+initialization
+ ClearFB_EpiW;
 end.
 

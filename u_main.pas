@@ -538,6 +538,7 @@ procedure TfmMain.ToEWinDBF; {Перенос из DBF-DOS-файлов ЭПИК�
 var
   s: string;  //y: integer;
 begin
+  ClearFB_EpiW;
   iZp:= CbxFio.Itemindex+1 ;
   inRegfDBF(s, iZp);
   dm_wdbf.Cin_Register(REGIS.r);

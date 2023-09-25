@@ -19,71 +19,71 @@
 }
 
 unit uofficedll;
-{* Динамическая библиотека для автоматизации создания отчётов в M$ Word XP/2003 в Delphi/Lazarus.
-Для использования необходимо в проект подключить модуль uofficedll.pas
-(в Lazarus также необходимо подключить модуль Variants и модуль ComObj).}
+{* Р”РёРЅР°РјРёС‡РµСЃРєР°СЏ Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ Р°РІС‚РѕРјР°С‚РёР·Р°С†РёРё СЃРѕР·РґР°РЅРёСЏ РѕС‚С‡С‘С‚РѕРІ РІ M$ Word XP/2003 РІ Delphi/Lazarus.
+Р”Р»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РЅРµРѕР±С…РѕРґРёРјРѕ РІ РїСЂРѕРµРєС‚ РїРѕРґРєР»СЋС‡РёС‚СЊ РјРѕРґСѓР»СЊ uofficedll.pas
+(РІ Lazarus С‚Р°РєР¶Рµ РЅРµРѕР±С…РѕРґРёРјРѕ РїРѕРґРєР»СЋС‡РёС‚СЊ РјРѕРґСѓР»СЊ Variants Рё РјРѕРґСѓР»СЊ ComObj).}
 interface
   uses sysutils;
  {$I wdconst.inc}
 
  function CentimetersToPoints(cm : Real) : Real; stdcall; external 'msofficedll.dll' name 'CentimetersToPoints';
- {* Переводит сантиметры в точки}
+ {* РџРµСЂРµРІРѕРґРёС‚ СЃР°РЅС‚РёРјРµС‚СЂС‹ РІ С‚РѕС‡РєРё}
 
  procedure NewDocument(var Wrd : Variant; visible : Boolean); stdcall; external 'msofficedll.dll' name 'NewDocument';
- {* Создает новый документ.  Параметр visible указывает, будет ли отображаться окно Word'а на экране}
+ {* РЎРѕР·РґР°РµС‚ РЅРѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚.  РџР°СЂР°РјРµС‚СЂ visible СѓРєР°Р·С‹РІР°РµС‚, Р±СѓРґРµС‚ Р»Рё РѕС‚РѕР±СЂР°Р¶Р°С‚СЊСЃСЏ РѕРєРЅРѕ Word'Р° РЅР° СЌРєСЂР°РЅРµ}
 
 //******************************************************************************
  procedure PageMargins(l,r,t,b : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'PageMargins';
- {* Устанавливает поля страницы}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР»СЏ СЃС‚СЂР°РЅРёС†С‹}
 
  procedure PageOrientation(orientation : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'PageOrientation';
-  {* Устанавливает альбомную/книжную ориентацию страницы.
-  wdOrientPortrait = 0;     //книжна
-  wdOrientLandscape = 1;    //альбомна      }
+  {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р°Р»СЊР±РѕРјРЅСѓСЋ/РєРЅРёР¶РЅСѓСЋ РѕСЂРёРµРЅС‚Р°С†РёСЋ СЃС‚СЂР°РЅРёС†С‹.
+  wdOrientPortrait = 0;     //РєРЅРёР¶РЅР°
+  wdOrientLandscape = 1;    //Р°Р»СЊР±РѕРјРЅР°      }
 
  procedure HFDistance(h,f : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'HFDistance';
-  {* Устанавливает отступы для верхнего и нижнего колонтитулов}
+  {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РѕС‚СЃС‚СѓРїС‹ РґР»СЏ РІРµСЂС…РЅРµРіРѕ Рё РЅРёР¶РЅРµРіРѕ РєРѕР»РѕРЅС‚РёС‚СѓР»РѕРІ}
 
  Procedure PageSize (w,h : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'PageSize';
-  {* Устанавливает размер страницы в сантиметрах. Для А4 w=29.7, h=21}
+  {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЂР°Р·РјРµСЂ СЃС‚СЂР°РЅРёС†С‹ РІ СЃР°РЅС‚РёРјРµС‚СЂР°С…. Р”Р»СЏ Рђ4 w=29.7, h=21}
 
  procedure SetOnPage(style : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'SetOnPage';
- {* Устанавливает количество и размещение листов на странице.
-  wdNormalPage = 0;   //1 к 1 - стандартно
-  wdTwoOnOne = 1;     //2 стор. на 1
-  wdBookFold = 2;     //брошюра }
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ Рё СЂР°Р·РјРµС‰РµРЅРёРµ Р»РёСЃС‚РѕРІ РЅР° СЃС‚СЂР°РЅРёС†Рµ.
+  wdNormalPage = 0;   //1 Рє 1 - СЃС‚Р°РЅРґР°СЂС‚РЅРѕ
+  wdTwoOnOne = 1;     //2 СЃС‚РѕСЂ. РЅР° 1
+  wdBookFold = 2;     //Р±СЂРѕС€СЋСЂР° }
 
  procedure PageAlign(align : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'PageAlign';
-  {* Устанавливает вертикальное выравнивание текста на странице.
-  wdAlignVerticalTop = 0;       //по верхнему краю
-  wdAlignVerticalCenter = 1;    //по центру
-  wdAlignVerticalJustify = 2;   //разтянуть по висоте
-  wdAlignVerticalBottom = 3;    //по нижнему краю    }
+  {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РІРµСЂС‚РёРєР°Р»СЊРЅРѕРµ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ С‚РµРєСЃС‚Р° РЅР° СЃС‚СЂР°РЅРёС†Рµ.
+  wdAlignVerticalTop = 0;       //РїРѕ РІРµСЂС…РЅРµРјСѓ РєСЂР°СЋ
+  wdAlignVerticalCenter = 1;    //РїРѕ С†РµРЅС‚СЂСѓ
+  wdAlignVerticalJustify = 2;   //СЂР°Р·С‚СЏРЅСѓС‚СЊ РїРѕ РІРёСЃРѕС‚Рµ
+  wdAlignVerticalBottom = 3;    //РїРѕ РЅРёР¶РЅРµРјСѓ РєСЂР°СЋ    }
 
  procedure NewPage(wrd : Variant); stdcall; external 'msofficedll.dll' name 'NewPage';
-{* Вставить разрыв страницы в документ}
+{* Р’СЃС‚Р°РІРёС‚СЊ СЂР°Р·СЂС‹РІ СЃС‚СЂР°РЅРёС†С‹ РІ РґРѕРєСѓРјРµРЅС‚}
 
 //******************************************************************************
  procedure FontName(name : ShortString; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontName';
-  {* Устанавливает название шрифта (напр. 'Courier New')}
+  {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅР°Р·РІР°РЅРёРµ С€СЂРёС„С‚Р° (РЅР°РїСЂ. 'Courier New')}
 
  procedure FontSize(sz : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontSize';
- {* Устанавливает размер для текущего шрифта}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЂР°Р·РјРµСЂ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ С€СЂРёС„С‚Р°}
 
  procedure FontBold(Bold : Boolean; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontBold';
- {* Устанавливает жирность для текущего шрифта}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р¶РёСЂРЅРѕСЃС‚СЊ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ С€СЂРёС„С‚Р°}
 
  procedure FontItalic(Italic : Boolean; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontItalic';
- {* Устанавливает курсив для текущего шрифта}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєСѓСЂСЃРёРІ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ С€СЂРёС„С‚Р°}
 
  procedure FontUnderlined(underlined : Boolean; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontUnderlined';
- {* Устанавливает подчеркивание для текущего шрифта}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕРґС‡РµСЂРєРёРІР°РЅРёРµ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ С€СЂРёС„С‚Р°}
 
  procedure FontShadowed(Shadowed : Boolean; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontShadowed';
- {* Устанавливает тень для текущего шрифта}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С‚РµРЅСЊ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ С€СЂРёС„С‚Р°}
 
  procedure FontColor(Color : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontColor';
- {* Устанавливает цвет для текущего  шрифта
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С†РІРµС‚ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ  С€СЂРёС„С‚Р°
   wdAuto = 0;
   wdBlack = 1;
   wdBlue = 2;
@@ -105,37 +105,37 @@ interface
   wdNoHighlight = 0; }
 
  procedure FontSuperScript(super : Boolean; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontSuperScript';
- {* Устанавливает верхние индексы}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РІРµСЂС…РЅРёРµ РёРЅРґРµРєСЃС‹}
 
  procedure FontSubScript(sub : Boolean; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontSubScript';
- {* Устанавливает нижние индексы}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅРёР¶РЅРёРµ РёРЅРґРµРєСЃС‹}
 
  procedure FontSpacing(spacing : Single; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontSpacing';
- {* Устанавливает межсимвольный интервал: 1, 1.5 и т.д.}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РјРµР¶СЃРёРјРІРѕР»СЊРЅС‹Р№ РёРЅС‚РµСЂРІР°Р»: 1, 1.5 Рё С‚.Рґ.}
 
  procedure FontScaling(scaling : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontScaling';
- {* Установливает масштаб для текущего шрифта в %}
+ {* РЈСЃС‚Р°РЅРѕРІР»РёРІР°РµС‚ РјР°СЃС€С‚Р°Р± РґР»СЏ С‚РµРєСѓС‰РµРіРѕ С€СЂРёС„С‚Р° РІ %}
 
  procedure FontPosition(position : Single; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'FontPosition';
- {* Устанавливает смещение текста вверх (положительные значения)
-   или вниз (отрицалельные значения) в пт}
+ {* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃРјРµС‰РµРЅРёРµ С‚РµРєСЃС‚Р° РІРІРµСЂС… (РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ)
+   РёР»Рё РІРЅРёР· (РѕС‚СЂРёС†Р°Р»РµР»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ) РІ РїС‚}
 
  procedure AddText(s : ShortString; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'AddText';
-{* Вставить строку}
+{* Р’СЃС‚Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ}
 
  procedure AddParagraph(var wrd : Variant); stdcall; external 'msofficedll.dll' name 'AddParagraph';
- {* Начать новый абзац}
+ {* РќР°С‡Р°С‚СЊ РЅРѕРІС‹Р№ Р°Р±Р·Р°С†}
 
 //******************************************************************************
  procedure ParagraphAlign(align : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'ParagraphAlign';
-{* Установить выравнивание абзаца по ширине
+{* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ Р°Р±Р·Р°С†Р° РїРѕ С€РёСЂРёРЅРµ
   wdAlignParagraphLeft = 0;
   wdAlignParagraphCenter = 1;
   wdAlignParagraphRight = 2;
   wdAlignParagraphJustify = 3;}
 
  procedure ParagraphLineSpace(space : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'ParagraphLineSpace';
- {* Установить междустрочный интервал:
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РјРµР¶РґСѓСЃС‚СЂРѕС‡РЅС‹Р№ РёРЅС‚РµСЂРІР°Р»:
   wdLineSpaceSingle = 0;
   wdLineSpace1pt5 = 1;
   wdLineSpaceDouble = 2;
@@ -144,64 +144,64 @@ interface
   wdLineSpaceMultiple = 5;}
 
  procedure ParagraphIndents(l,r : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'ParagraphIndents';
- {* Установить отступы абзаца слева и справа (в см)}
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕС‚СЃС‚СѓРїС‹ Р°Р±Р·Р°С†Р° СЃР»РµРІР° Рё СЃРїСЂР°РІР° (РІ СЃРј)}
 
  procedure ParagraphSpaces(top,bottom : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'ParagraphSpaces';
- {* Установить отступы абзаца сверху и снизу}
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕС‚СЃС‚СѓРїС‹ Р°Р±Р·Р°С†Р° СЃРІРµСЂС…Сѓ Рё СЃРЅРёР·Сѓ}
 
  Procedure ParagraphFirstLine(indent : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'ParagraphFirstLine';
- {* Установить отступ первой строки абзаца (в см)}
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РѕС‚СЃС‚СѓРї РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРё Р°Р±Р·Р°С†Р° (РІ СЃРј)}
 
  //*****************************************************************************
  procedure AddTabPosition(pos : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'AddTabPosition';
-{* Вставить позицию табуляции в pos см}
+{* Р’СЃС‚Р°РІРёС‚СЊ РїРѕР·РёС†РёСЋ С‚Р°Р±СѓР»СЏС†РёРё РІ pos СЃРј}
 
  procedure DefaultTabPos(pos : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'DefaultTabPos';
- {* Установить позицию табуляции по умолчанию в pos см}
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕР·РёС†РёСЋ С‚Р°Р±СѓР»СЏС†РёРё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РІ pos СЃРј}
 
  procedure ClearAllTabs(var wrd : Variant); stdcall; external 'msofficedll.dll' name 'ClearAllTabs';
- {* Очистить все позиции табуляции}
+ {* РћС‡РёСЃС‚РёС‚СЊ РІСЃРµ РїРѕР·РёС†РёРё С‚Р°Р±СѓР»СЏС†РёРё}
 
  //*****************************************************************************
  procedure CreateTable(Col,Row : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'CreateTable';
- {* Создать таблицу с атрибутами по умолчанию}
+ {* РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ СЃ Р°С‚СЂРёР±СѓС‚Р°РјРё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ}
 
  Procedure SetColWidth(wid : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'SetColWidth';
- {* Установить ширину текущего столбца в таблице.
-  Использовать после вызова AddText(), иначе значение игнорируется}
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С€РёСЂРёРЅСѓ С‚РµРєСѓС‰РµРіРѕ СЃС‚РѕР»Р±С†Р° РІ С‚Р°Р±Р»РёС†Рµ.
+  РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕСЃР»Рµ РІС‹Р·РѕРІР° AddText(), РёРЅР°С‡Рµ Р·РЅР°С‡РµРЅРёРµ РёРіРЅРѕСЂРёСЂСѓРµС‚СЃСЏ}
 
  Procedure SetRowHeight(h : Single; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'SetRowHeight';
- {* Установить высоту текущей строки в таблице.}
+ {* РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІС‹СЃРѕС‚Сѓ С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё РІ С‚Р°Р±Р»РёС†Рµ.}
 
  procedure GotoRight(cells : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'GotoRight';
- {* Перейти на cells ячеек вправо. Если таблица закончилась, вставляет новую строку}
+ {* РџРµСЂРµР№С‚Рё РЅР° cells СЏС‡РµРµРє РІРїСЂР°РІРѕ. Р•СЃР»Рё С‚Р°Р±Р»РёС†Р° Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ, РІСЃС‚Р°РІР»СЏРµС‚ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ}
 
  procedure GotoLeft(cells : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'GotoLeft';
- {* Перейти на cells ячеек влево.}
+ {* РџРµСЂРµР№С‚Рё РЅР° cells СЏС‡РµРµРє РІР»РµРІРѕ.}
 
  procedure GotoUp(lines : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'GotoUp';
- {* Перейти на lines строк вверх}
+ {* РџРµСЂРµР№С‚Рё РЅР° lines СЃС‚СЂРѕРє РІРІРµСЂС…}
 
  procedure GotoDown(lines : Integer; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'GotoDown';
- {* Перейти на lines строк вниз.}
+ {* РџРµСЂРµР№С‚Рё РЅР° lines СЃС‚СЂРѕРє РІРЅРёР·.}
 
  Procedure MergeCellsR(count : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'MergeCellsR';
- {* Обьединить указанные ячейки вправо. Курсор должен находиться в первой из них}
+ {* РћР±СЊРµРґРёРЅРёС‚СЊ СѓРєР°Р·Р°РЅРЅС‹Рµ СЏС‡РµР№РєРё РІРїСЂР°РІРѕ. РљСѓСЂСЃРѕСЂ РґРѕР»Р¶РµРЅ РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ РїРµСЂРІРѕР№ РёР· РЅРёС…}
 
  Procedure MergeCellsD(count : Integer; var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'MergeCellsD';
- {* Обьединить указанные ячейки вниз. Курсор должен находиться в первой из них}
+ {* РћР±СЊРµРґРёРЅРёС‚СЊ СѓРєР°Р·Р°РЅРЅС‹Рµ СЏС‡РµР№РєРё РІРЅРёР·. РљСѓСЂСЃРѕСЂ РґРѕР»Р¶РµРЅ РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ РїРµСЂРІРѕР№ РёР· РЅРёС…}
 
  procedure DeleteRow(var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'DeleteRow';
- {* Удалить текущую строку таблицы}
+ {* РЈРґР°Р»РёС‚СЊ С‚РµРєСѓС‰СѓСЋ СЃС‚СЂРѕРєСѓ С‚Р°Р±Р»РёС†С‹}
 
  procedure DeleteCol(var Wrd : Variant); stdcall; external 'msofficedll.dll' name 'DeleteCol';
- {* Удалить текущий столбец таблицы}
+ {* РЈРґР°Р»РёС‚СЊ С‚РµРєСѓС‰РёР№ СЃС‚РѕР»Р±РµС† С‚Р°Р±Р»РёС†С‹}
 
  Procedure ExitTable(wrd : Variant); stdcall; external 'msofficedll.dll' name 'ExitTable';
-{* Выйти из таблицы}
+{* Р’С‹Р№С‚Рё РёР· С‚Р°Р±Р»РёС†С‹}
 
  procedure CellTextOrientation(orient : Integer;wrd : Variant); stdcall; external 'msofficedll.dll' name 'CellTextOrientation';
- {* Направление текста в таблице:
+ {* РќР°РїСЂР°РІР»РµРЅРёРµ С‚РµРєСЃС‚Р° РІ С‚Р°Р±Р»РёС†Рµ:
   wdTextOrientationHorizontal = 0;
   wdTextOrientationUpward = 2;
   wdTextOrientationDownward = 3;
@@ -209,31 +209,31 @@ interface
   wdTextOrientationHorizontalRotatedFarEast = 4;}
 
  procedure InsertHeader(hdr : ShortString; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'InsertHeader';
-{* Вставить верхний колонтитул}
+{* Р’СЃС‚Р°РІРёС‚СЊ РІРµСЂС…РЅРёР№ РєРѕР»РѕРЅС‚РёС‚СѓР»}
 
  procedure InsertFooter(ftr : ShortString; var wrd : Variant); stdcall; external 'msofficedll.dll' name 'InsertFooter';
-{* Вставить нижний колонтитул}
+{* Р’СЃС‚Р°РІРёС‚СЊ РЅРёР¶РЅРёР№ РєРѕР»РѕРЅС‚РёС‚СѓР»}
 
 procedure SetWordVisible(var wrd : Variant; Visible : Boolean); stdcall; external 'msofficedll.dll' name 'SetWordVisible';
-{*сделать Ворд видимым на экране}
+{*СЃРґРµР»Р°С‚СЊ Р’РѕСЂРґ РІРёРґРёРјС‹Рј РЅР° СЌРєСЂР°РЅРµ}
 
 function CheckWordVersion(var wrd : Variant):Boolean; stdcall; external 'msofficedll.dll' name 'CheckWordVersion';
-{*проверить может ли использоваться установленная версия Ворда}
+{*РїСЂРѕРІРµСЂРёС‚СЊ РјРѕР¶РµС‚ Р»Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅР°СЏ РІРµСЂСЃРёСЏ Р’РѕСЂРґР°}
 
 Function SaveDocAs(file_:Shortstring; var wrd : Variant):boolean; stdcall; external 'msofficedll.dll' name 'SaveDocAs';
-{*сохранить созданный документ с указанным именем и путем}
+{*СЃРѕС…СЂР°РЅРёС‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРјРµРЅРµРј Рё РїСѓС‚РµРј}
 
 Function CloseDoc(var wrd : Variant):boolean; stdcall; external 'msofficedll.dll' name 'CloseDoc';
-{*закрыть документ}
+{*Р·Р°РєСЂС‹С‚СЊ РґРѕРєСѓРјРµРЅС‚}
 
 Function CloseWord(var wrd : Variant):boolean; stdcall; external 'msofficedll.dll' name 'CloseWord';
-{*выход из Word'a}
+{*РІС‹С…РѕРґ РёР· Word'a}
 
 Function PrintDialogWord(var wrd : Variant):boolean; stdcall; external 'msofficedll.dll' name 'PrintDialogWord';
-{*вызов диалога печати}
+{*РІС‹Р·РѕРІ РґРёР°Р»РѕРіР° РїРµС‡Р°С‚Рё}
 
 Procedure CreateTableEx(Col,Row : Integer; DefaultTableBehavior,AutoFitBehavior : Integer; var wrd : Variant);stdcall; external 'msofficedll.dll' name 'CreateTableEx';
-{*создать таблицу с расширенными параметрами.
+{*СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ СЃ СЂР°СЃС€РёСЂРµРЅРЅС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё.
   arg1:
   wdWord8TableBehavior = 0;
   wdWord9TableBehavior = 1;
@@ -246,33 +246,33 @@ Procedure CreateTableEx(Col,Row : Integer; DefaultTableBehavior,AutoFitBehavior 
 
 {******************************************************************************}
 {                                                                              }
-{                   Функции для автоматизации M$ Excel                         }
+{                   Р¤СѓРЅРєС†РёРё РґР»СЏ Р°РІС‚РѕРјР°С‚РёР·Р°С†РёРё M$ Excel                         }
 {                                                                              }
 {******************************************************************************}
 
  procedure NewXlsDocument(var xls : Variant; visible : Boolean);StdCall; external 'msofficedll.dll' name 'NewXlsDocument';
- {*Создает новый документ Excel}
+ {*РЎРѕР·РґР°РµС‚ РЅРѕРІС‹Р№ РґРѕРєСѓРјРµРЅС‚ Excel}
 
  procedure OpenXlsDocument(var xls : Variant; xlsfile : ShortString);StdCall; external 'msofficedll.dll' name 'OpenXlsDocument';
- {*Открыть указанный документ}
+ {*РћС‚РєСЂС‹С‚СЊ СѓРєР°Р·Р°РЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚}
 
  function GetXlsWorkBook(var xls : Variant; idx : Integer): Variant;StdCall; external 'msofficedll.dll' name 'GetXlsWorkBook';
- {*Получить ссылку на активную книгу}
+ {*РџРѕР»СѓС‡РёС‚СЊ СЃСЃС‹Р»РєСѓ РЅР° Р°РєС‚РёРІРЅСѓСЋ РєРЅРёРіСѓ}
 
  function GetXlsWorkBookSheet(var WorkBook : Variant; idx : Integer):Variant;StdCall; external 'msofficedll.dll' name 'GetXlsWorkBookSheet';
- {*Получить ссылку на активный лист}
+ {*РџРѕР»СѓС‡РёС‚СЊ СЃСЃС‹Р»РєСѓ РЅР° Р°РєС‚РёРІРЅС‹Р№ Р»РёСЃС‚}
 
  procedure SetCellValue(var Xls : Variant; CellName : ShortString; value : ShortString);StdCall; external 'msofficedll.dll' name 'SetCellValue';
- {*Записать значение как текст в указанную ячейку}
+ {*Р—Р°РїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РєР°Рє С‚РµРєСЃС‚ РІ СѓРєР°Р·Р°РЅРЅСѓСЋ СЏС‡РµР№РєСѓ}
 
  procedure SetCellValueInteger(var Xls : Variant; CellName : ShortString; value : Integer);StdCall; external 'msofficedll.dll' name 'SetCellValueInteger';
- {*Записать значение как целое число в указанную ячейку}
+ {*Р—Р°РїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РєР°Рє С†РµР»РѕРµ С‡РёСЃР»Рѕ РІ СѓРєР°Р·Р°РЅРЅСѓСЋ СЏС‡РµР№РєСѓ}
 
  procedure SetCellValueFloat(var Xls : Variant; CellName : ShortString; value : Double);StdCall; external 'msofficedll.dll' name 'SetCellValueFloat';
- {*Записать значение как число с плавающей точкой в указанную ячейку}
+ {*Р—Р°РїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РєР°Рє С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ РІ СѓРєР°Р·Р°РЅРЅСѓСЋ СЏС‡РµР№РєСѓ}
 
  procedure SetCellValueDate(var Xls : Variant; CellName : ShortString; value : TDatetime);StdCall; external 'msofficedll.dll' name 'SetCellValueDate';
- {*Записать значение как дату в указанную ячейку}
+ {*Р—Р°РїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РєР°Рє РґР°С‚Сѓ РІ СѓРєР°Р·Р°РЅРЅСѓСЋ СЏС‡РµР№РєСѓ}
 
 
 
