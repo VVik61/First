@@ -18,7 +18,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="2"/>
+      <BuildNr Value="5"/>
       <Language Value="0419"/>
       <CharSet Value="04E7"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
@@ -176,6 +176,14 @@
         <Filename Value="DBF3.PAS"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Dbf3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="LazLocalRU.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="dm_wbdf.lfm"/>
+        <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>

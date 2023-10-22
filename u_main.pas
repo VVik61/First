@@ -5,7 +5,7 @@ unit u_main;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  Classes, LazLocalRU, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ButtonPanel, ComCtrls, StdCtrls, StrUtils,
   LazUTF8, Dbf3, lrTDbfData, LCLType, dm_wbdf;
 
@@ -593,6 +593,9 @@ begin
   //CreateWord(true);
   FormatInWord; //(pb1.Position);
 end;
+
+initialization
+LazLocalRU.TranslateUnitResourceStrings;
 
 end.
 

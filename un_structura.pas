@@ -1081,8 +1081,8 @@ begin
     k:=2;
     for y := 1 to 6 do begin
      arOpisAn[y]:= Trim(DbfRead(1, iZ, k)); //arOpisAn: array [1..6] of string[60]; //описательные
-    if arOpisAn[y] = '*' then break else
-      sAnalKr := sAnalKr +' '+ arOpisAn[y];
+     //if arOpisAn[y] = '*' then break else
+     if arOpisAn[y] <> '*' then sAnalKr := sAnalKr +' '+ arOpisAn[y];
      k:= k+1;
     end;
     sAnalKr:= ConsoleToUTF8(Trim(sAnalKr));
@@ -1111,8 +1111,8 @@ begin
     k:=2;
     for y := 1 to 6 do begin
      arOpisAn[y]:= Trim(DbfRead(1, iZ, k)); //arOpisAn: array [1..6] of string[60]; //описательные
-     if arOpisAn[y] = '*' then break else
-      sAnalMO := sAnalMO +' '+ arOpisAn[y];
+     //if arOpisAn[y] = '*' then break else
+     if arOpisAn[y] <> '*' then  sAnalMO := sAnalMO +' '+ arOpisAn[y];
      k:= k+1;
     end;
     sAnalMO:= ConsoleToUTF8(Trim(sAnalMO));
@@ -1140,8 +1140,8 @@ begin
     k:=2;
     for y := 1 to 6 do begin
      arOpisAn[y]:= Trim(DbfRead(1, iZ, k)); //arOpisAn: array [1..6] of string[60]; //описательные
-    if arOpisAn[y] = '*' then break else
-      sAnalLu := sAnalLu +' '+ arOpisAn[y];
+     //if arOpisAn[y] = '*' then break else
+     if arOpisAn[y] <> '*' then sAnalLu := sAnalLu +' '+ arOpisAn[y];
      k:= k+1;
     end;
     sAnalLu:= ConsoleToUTF8(Trim(sAnalLu));
@@ -1166,24 +1166,33 @@ begin
   sPutDBF := UTF8ToConsole(DM_S.sRabDir+ DM_S.namedbf[15]);
   if DbfOpen(1, sPutDBF) <>0 then   Showmessage('Ошибка')
   else With ANAL_SVI, FB_EpiW  do begin
+{TODO: проработать запись в WinDBD пустышек=*}
    if Trim(DbfRead(1, iZ, 2)) <> '*'  then  begin
    sInstrumI  := ''; {FB_EpiW}
    R :=  Trim(DbfRead(1, iZ, 1));
     k:=2;   //OBSLArray[y].sVidOBSL  OBSLArray[y].sDATAOBSL OBSLArray[y].sREZ_OBSL
     for y := 1 to 6 do begin
       With OBSLArray[y] do begin       //Showmessage('sTMP= '+ ConsoleToUTF8(Trim(sTMP)) );
-       sTMP:= '';
+       sTMP:= '';       //if Trim(DbfRead(1, iZ, k)) = '*'  then  break;
 
-       if Trim(DbfRead(1, iZ, k)) = '*'  then  break;
          arAN_KONSVI[y].imyaissl:= Trim(DbfRead(1, iZ, k));
          sVidOBSL:= arAN_KONSVI[y].imyaissl; //OBSLArray[y].         //Showmessage('Trim(DbfRead(1, iZ, k))= '+  ConsoleToUTF8 (DbfRead(1, iZ, k) ) );
          arAN_KONSVI[y].sData:= Trim(DbfRead(1, iZ, k+1));
          sDATAOBSL:= arAN_KONSVI[y].sData; //OBSLArray[y].         //Showmessage('Trim(DbfRead(1, iZ, k+1))= '+ Trim(DbfRead(1, iZ, k+1)));
+
+          arAN_KONSVI[y].arOpis[1] := DbfRead(1, iZ, k+2);
+          arAN_KONSVI[y].arOpis[2] := DbfRead(1, iZ, k+3);
+          arAN_KONSVI[y].arOpis[3] := DbfRead(1, iZ, k+4);
+          arAN_KONSVI[y].arOpis[4] := DbfRead(1, iZ, k+5);
+          arAN_KONSVI[y].arOpis[5] := DbfRead(1, iZ, k+6);
+          arAN_KONSVI[y].arOpis[6] := DbfRead(1, iZ, k+7);
+
          sTMP:= Trim(DbfRead(1, iZ, k+2));         //Showmessage('Trim(DbfRead(1, iZ, k+2))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+2)) );
-         if Trim(DbfRead(1, iZ, k+3)) <> '*' then sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+3));         //Showmessage('Trim(DbfRead(1, iZ, k+3))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+3)) );
-         if Trim(DbfRead(1, iZ, k+4)) <> '*' then sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+4));         //Showmessage('Trim(DbfRead(1, iZ, k+4))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+4)) );
+         if Trim(DbfRead(1, iZ, k+3)) <> '*' then  sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+3));    //Showmessage('Trim(DbfRead(1, iZ, k+3))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+3)) );
+         if Trim(DbfRead(1, iZ, k+4)) <> '*' then   sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+4));         //Showmessage('Trim(DbfRead(1, iZ, k+4))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+4)) );
          if Trim(DbfRead(1, iZ, k+5)) <> '*' then sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+5));         //Showmessage('Trim(DbfRead(1, iZ, k+5))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+5)) );
          if Trim(DbfRead(1, iZ, k+6)) <> '*' then sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+6));         //Showmessage('Trim(DbfRead(1, iZ, k+6))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+6)) );
+
          sREZ_OBSL := Trim(sTMP);
          sREZ_OBSL := delperenos(sTMP);
          sREZ_OBSL :=  ConsoleToUTF8(sREZ_OBSL);
@@ -1227,13 +1236,19 @@ begin
     k:=2;   //KONSArray[y].sVidOBSL  KONSArray[y].sDATAOBSL KONSArray[y].sREZ_OBSL
     for y := 1 to 6 do begin
       With KONSArray[y] do begin       //Showmessage('sTMP= '+ ConsoleToUTF8(Trim(sTMP)) );
-       sTMP:= '';
-
-       if Trim(DbfRead(1, iZ, k)) = '*'  then  break;
+       sTMP:= '';       //if Trim(DbfRead(1, iZ, k)) = '*'  then  break;
          arAN_KONSVI[y].imyaissl:= Trim(DbfRead(1, iZ, k));
          sVidOBSL:= arAN_KONSVI[y].imyaissl; //KONSArray[y].         //Showmessage('Trim(DbfRead(1, iZ, k))= '+  ConsoleToUTF8 (DbfRead(1, iZ, k) ) );
          arAN_KONSVI[y].sData:= Trim(DbfRead(1, iZ, k+1));
          sDATAOBSL:= arAN_KONSVI[y].sData; //KONSArray[y].         //Showmessage('Trim(DbfRead(1, iZ, k+1))= '+ Trim(DbfRead(1, iZ, k+1)));
+
+         arAN_KONSVI[y].arOpis[1] := DbfRead(1, iZ, k+2);
+         arAN_KONSVI[y].arOpis[2] := DbfRead(1, iZ, k+3);
+         arAN_KONSVI[y].arOpis[3] := DbfRead(1, iZ, k+4);
+         arAN_KONSVI[y].arOpis[4] := DbfRead(1, iZ, k+5);
+         arAN_KONSVI[y].arOpis[5] := DbfRead(1, iZ, k+6);
+         arAN_KONSVI[y].arOpis[6] := DbfRead(1, iZ, k+7);
+
          sTMP:= Trim(DbfRead(1, iZ, k+2));         //Showmessage('Trim(DbfRead(1, iZ, k+2))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+2)) );
          if Trim(DbfRead(1, iZ, k+3)) <> '*' then sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+3));         //Showmessage('Trim(DbfRead(1, iZ, k+3))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+3)) );
          if Trim(DbfRead(1, iZ, k+4)) <> '*' then sTMP:= sTMP+' '+Trim(DbfRead(1, iZ, k+4));         //Showmessage('Trim(DbfRead(1, iZ, k+4))= '+ ConsoleToUTF8(DbfRead(1, iZ, k+4)) );

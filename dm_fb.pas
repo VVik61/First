@@ -51,6 +51,12 @@ uses forms, DM_setup; // u_main;
 
 procedure TD_FB.DataModuleCreate(Sender: TObject);
 begin
+  With IBDB, DM_S do begin
+     DatabaseName := sDatabaseName;
+     FirebirdLibraryPathName:=  sFBCLPath;
+
+
+(*
   With IBDB, DM_S.IniPS do begin
     IniSection:= 'Directory';
     DatabaseName:= ConsoleToUTF8(ReadString('sDatabaseName', ''));
@@ -61,7 +67,7 @@ begin
            with dlgOpenBD do
             begin
               Filter := 'Файл БД Firebird *.fdb|*.fdb';
-              InitiaLDir := ReadString('DirDB', 'G:\');
+              InitiaLDir := ReadString('DirDB', 'E:\');
               if Execute then DatabaseName := FileName;
             end;
          end;
@@ -70,11 +76,12 @@ begin
            with dlgOpenBD do
             begin
               Filter := 'Файл клиенской библитеки для Firebird *.dll|*.dll';
-              InitiaLDir := '';
+              //InitiaLDir := '';
               InitiaLDir := ReadString('DirClienFB', 'C:\');
               if Execute then FirebirdLibraryPathName := FileName;
             end;
          end;
+ *)
     try
       Connected:= True;
     except on E: Exception do begin

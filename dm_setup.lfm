@@ -9,7 +9,6 @@ object DM_S: TDM_S
   object IniPS: TIniPropStorage
     StoredValues = <>
     IniSection = 'Directory'
-    OnRestoreProperties = IniPSRestoreProperties
     Left = 34
     Top = 24
   end

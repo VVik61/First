@@ -85,114 +85,39 @@ uses forms, Dialogs, DM_setup;
 
 { Tdm_wdbf }
 
-
-
 procedure Tdm_wdbf.DataModuleCreate(Sender: TObject);
+var
+  i: integer;
+  s: string;
 begin
- Dbf_Register.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- //Showmessage(UTF8ToConsole(DM_S.sFilePathFullWDBF));
- //Showmessage(UTF8ToConsole(DM_S.sFilePathWDBF));
- Dbf_Register.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_PEREMENA.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_PEREMENA.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAL_GIR.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAL_GIR.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAL_KRV.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAL_KRV.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAL_MCH.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAL_MCH.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAL_LUM.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAL_LUM.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAL_SVI.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAL_SVI.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAL_KON.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAL_KON.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_LEKA_MED.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_LEKA_MED.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_LEKA_NMD.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_LEKA_NMD.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_LEKA_XIR.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_LEKA_XIR.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_LEKA_REZ.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_LEKA_REZ.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_DIAGKOSN.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_DIAGKOSN.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_RECOMEND.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_RECOMEND.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
-  Dbf_COMMENT.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
-  Dbf_COMMENT.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_DIAGPOSN.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_DIAGPOSN.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ZAKLUCHE.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ZAKLUCHE.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAM_GZN.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAM_GZN.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_ANAM_ZBL.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_ANAM_ZBL.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_PSIXISOS.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_PSIXISOS.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_SOMATSOS.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_SOMATSOS.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
- Dbf_NEVROSOS.FilePathFull:= UTF8ToConsole(DM_S.sFilePathFullWDBF);
- Dbf_NEVROSOS.FilePath:=     UTF8ToConsole(DM_S.sFilePathWDBF);
+ s:= UTF8ToConsole(DM_S.sFilePathFULLWDBF); //Showmessage('s= '+s);
  try
-  Dbf_Register.Open;
-  Dbf_PEREMENA.Open;
-  Dbf_ANAL_GIR.Open;
-  Dbf_ANAL_KRV.Open;
-  Dbf_ANAL_MCH.Open;
-  Dbf_ANAL_LUM.Open;
-  Dbf_ANAL_SVI.Open;
-  Dbf_ANAL_KON.Open;
-  Dbf_LEKA_MED.Open;
-  Dbf_LEKA_NMD.Open;
-  Dbf_LEKA_XIR.Open;
-  Dbf_LEKA_REZ.Open;
-  Dbf_DIAGKOSN.Open;
-  Dbf_RECOMEND.Open;
-   Dbf_COMMENT.Open;
-  Dbf_DIAGPOSN.Open;
-  Dbf_ZAKLUCHE.Open;
-  Dbf_ANAM_GZN.Open;
-  Dbf_ANAM_ZBL.Open;
-  Dbf_PSIXISOS.Open;
-  Dbf_SOMATSOS.Open;
-  Dbf_NEVROSOS.Open;
+ for i := 0 to ComponentCount-1 do
+ begin
+   If (Components[i] is TDbf) then
+          (Components[i] as TDbf).FilePath:= s;
+       (Components[i] as TDbf).Open;
+ end;
  except  On  E: Exception do  begin
-    Application .MessageBox(PChar('Не могу открыть БД! Программы будет закрыта.'), 'ВНИМАНИЕ', 0);
+    Application .MessageBox(PChar('WDBF_Не могу открыть БД! Программы будет закрыта.'), 'ВНИМАНИЕ', 0);
     Application.Terminate;
-  end;
+    end;
  end;
 end;
 
 procedure Tdm_wdbf.DataModuleDestroy(Sender: TObject);
+var
+  i: integer;
 begin
-  try
- Dbf_Register.Close;
- Dbf_PEREMENA.Close;
- Dbf_ANAL_GIR.Close;
- Dbf_ANAL_KRV.Close;
- Dbf_ANAL_MCH.Close;
- Dbf_ANAL_LUM.Close;
- Dbf_ANAL_SVI.Close;
- Dbf_ANAL_KON.Close;
- Dbf_LEKA_MED.Close;
- Dbf_LEKA_NMD.Close;
- Dbf_LEKA_XIR.Close;
- Dbf_LEKA_REZ.Close;
- Dbf_DIAGKOSN.Close;
- Dbf_RECOMEND.Close;
- Dbf_COMMENT.Close;
- Dbf_DIAGPOSN.Close;
- Dbf_ZAKLUCHE.Close;
- Dbf_ANAM_GZN.Close;
- Dbf_ANAM_ZBL.Close;
- Dbf_PSIXISOS.Close;
- Dbf_SOMATSOS.Close;
- Dbf_NEVROSOS.Close;
+ try
+   for i := 0 to ComponentCount-1 do begin
+     If (Components[i] is TDbf) then
+       (Components[i] as TDbf).Close;
+   end;
  except
  end;
 end;
+
 
 procedure Tdm_wdbf.Cin_Register(S: String);
 begin
@@ -515,7 +440,7 @@ begin
    if (arOpisZBL[1] = '*') or (Length(Trim(arOpisZBL[1])) =0) then FieldByName('AN_ZBL').AsString:= '*'
     else begin
     sTMP :='';
-    for y := 1 to 24 do
+    for y := 1 to 40 do
       if  Trim(arOpisZBL[y]) <> '*' then sTMP:= sTMP+ ' '+ Trim(arOpisZBL[y]);
     FieldByName('AN_ZBL').AsString:=  delperenos(sTMP);
     end;
@@ -972,6 +897,7 @@ begin
    FieldByName('SVI_R0204').AsString:= arAN_KONSVI[2].arOpis[4];
    FieldByName('SVI_R0205').AsString:= arAN_KONSVI[2].arOpis[5];
    FieldByName('SVI_R0206').AsString:= arAN_KONSVI[2].arOpis[6];
+
    FieldByName('SVI_N03').AsString:=   arAN_KONSVI[3].imyaissl;
    FieldByName('SVI_D03').AsString:=   arAN_KONSVI[3].sData;
    FieldByName('SVI_R0301').AsString:= arAN_KONSVI[3].arOpis[1];
@@ -980,6 +906,7 @@ begin
    FieldByName('SVI_R0304').AsString:= arAN_KONSVI[3].arOpis[4];
    FieldByName('SVI_R0305').AsString:= arAN_KONSVI[3].arOpis[5];
    FieldByName('SVI_R0306').AsString:= arAN_KONSVI[3].arOpis[6];
+
    FieldByName('SVI_N04').AsString:=   arAN_KONSVI[4].imyaissl;
    FieldByName('SVI_D04').AsString:=   arAN_KONSVI[4].sData;
    FieldByName('SVI_R0401').AsString:= arAN_KONSVI[4].arOpis[1];
@@ -988,14 +915,17 @@ begin
    FieldByName('SVI_R0404').AsString:= arAN_KONSVI[4].arOpis[4];
    FieldByName('SVI_R0405').AsString:= arAN_KONSVI[4].arOpis[5];
    FieldByName('SVI_R0406').AsString:= arAN_KONSVI[4].arOpis[6];
+
    FieldByName('SVI_N05').AsString:=   arAN_KONSVI[5].imyaissl;
    FieldByName('SVI_D05').AsString:=   arAN_KONSVI[5].sData;
+
    FieldByName('SVI_R0501').AsString:= arAN_KONSVI[5].arOpis[1];
    FieldByName('SVI_R0502').AsString:= arAN_KONSVI[5].arOpis[2];
    FieldByName('SVI_R0503').AsString:= arAN_KONSVI[5].arOpis[3];
    FieldByName('SVI_R0504').AsString:= arAN_KONSVI[5].arOpis[4];
    FieldByName('SVI_R0505').AsString:= arAN_KONSVI[5].arOpis[5];
    FieldByName('SVI_R0506').AsString:= arAN_KONSVI[5].arOpis[6];
+
    FieldByName('SVI_N06').AsString:=   arAN_KONSVI[6].imyaissl;
    FieldByName('SVI_D06').AsString:=   arAN_KONSVI[6].sData;
    FieldByName('SVI_R0601').AsString:= arAN_KONSVI[6].arOpis[1];
