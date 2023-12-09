@@ -53,8 +53,4 @@ begin
 {$ENDREGION}  //OpenRegister; //SetZvezInDBFLin(1); -проверка работы  SetZvezInDBFLin - запись в 1-е поле Reg, в остальные поля звездочек *
 end;
 
-
-
-
 end.
-
